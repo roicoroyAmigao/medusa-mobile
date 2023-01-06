@@ -52,7 +52,7 @@ export class AddressComponent implements OnDestroy {
   }
 
   submitAddressForm() {
-    this.utility.presentLoading('...');
+
     const registerAddress: IRegisterAddress = {
       first_name: this.first_name,
       last_name: this.last_name,
@@ -70,15 +70,10 @@ export class AddressComponent implements OnDestroy {
 
     this.store.dispatch(new CustomerRegisterActions.UpdateCustomerRegisterAddress(registerAddress));
 
-    setTimeout(() => {
-      const errorEntry = this.store.selectSnapshot<any>((state) => state.errorsLogging.errorEntry);
-      if (errorEntry === null) {
-        this.navigation.navigateFlip('/home');
-        this.utility.dismissLoading();
-      } else {
-        this.utility.dismissLoading();
-      }
-    }, 2000);
+    const errorEntry = this.store.selectSnapshot<any>((state) => state.errorsLogging.errorEntry);
+    if (errorEntry === null) {
+      this.navigation.navigateFlip('/home');
+    }
   }
 
   back(): void {

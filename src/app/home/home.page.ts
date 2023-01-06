@@ -32,9 +32,9 @@ export class HomePage {
         private auth: AppAuthService,
     ) {
         this.viewState$ = this.facade.viewState$;
-        this.viewState$.subscribe((state) => {
-            console.log(state);
-        });
+        // this.viewState$.subscribe((state) => {
+        //     console.log(state);
+        // });
         this.categoriesData.push({
             id: '1',
             url: 'products-list',

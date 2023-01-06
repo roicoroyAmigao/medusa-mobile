@@ -128,8 +128,8 @@ export class CustomerState {
     async addaShippingAddress(ctx: StateContext<CustomerStateModel>, { payload }: CustomerActions.AddAShippingAddress) {
         try {
 
-            let sessionRes = await this.medusaClient.auth?.getSession();
-            if (sessionRes.response.status === 200) {
+            // let sessionRes = await this.medusaClient.auth?.getSession();
+            // if (sessionRes.response.status === 200) {
                 let customer = await this.medusaClient.customers.addresses.addAddress({
                     address: {
                         first_name: payload?.first_name,
@@ -146,15 +146,15 @@ export class CustomerState {
                     }
                 });
                 this.store.dispatch(new CustomerActions.GetSession());
-            }
+            // }
         }
         catch (err: any) {
             if (err) {
-                this.store.dispatch(new LogErrorEntry(err));
-                const erro: any = {
-                    message: 'you need to login'
-                }
-                this.store.dispatch(new LogErrorEntry(erro));
+                // this.store.dispatch(new LogErrorEntry(err));
+                // const erro: any = {
+                //     message: 'you need to login'
+                // }
+                // this.store.dispatch(new LogErrorEntry(erro));
             }
         }
     }

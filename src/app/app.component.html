@@ -48,5 +48,24 @@
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
+
+    <ion-menu side="end" contentId="main-content" type="overlay">
+      <ion-content class="ion-text-center">
+        <app-medusa-cart></app-medusa-cart>
+      </ion-content>
+      <ion-footer>
+        <ion-toolbar>
+          <ion-row class="checkout-button">
+            <ion-col size="12">
+              <ion-button expand="block" class="main-button" (click)="checkout()">
+                Checkout
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-toolbar>
+      </ion-footer>
+    </ion-menu>
+
+
   </ion-split-pane>
 </ion-app>

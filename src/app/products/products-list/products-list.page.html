@@ -1,16 +1,5 @@
 <lib-header *ngIf="viewState$ | async as vs" [headerData]="vs"></lib-header>
 
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-button (click)="navigateHome()">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Fashion Listing</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>

@@ -27,6 +27,8 @@ import { ShippingState } from './store/shipping/shipping.state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { CustomComponentsModule } from 'projects/components/src/public-api';
+import { FormComponentsModule } from 'projects/form-components/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -71,6 +73,8 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
       }),
       NgxsLoggerPluginModule.forRoot({ disabled: true }),
       NgxStripeModule.forRoot(environment.STRIPE_KEY),
+      FormComponentsModule,
+      CustomComponentsModule
     ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

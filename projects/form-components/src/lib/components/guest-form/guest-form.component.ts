@@ -1,6 +1,5 @@
 import { Component, forwardRef, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormGroup, FormBuilder, ControlValueAccessor, NG_VALIDATORS, FormControl, Validators } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
 import { Store } from '@ngxs/store';
 import { Subscription } from 'rxjs';
 
@@ -55,7 +54,6 @@ export class GuestFormComponent implements ControlValueAccessor, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    public translate: TranslateService,
     public store: Store,
   ) {
     this.guestForm = this.formBuilder.group({

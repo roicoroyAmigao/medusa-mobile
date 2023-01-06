@@ -2,33 +2,42 @@ import { Injectable } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CustomerState } from './store/customer/customer.state';
+import { CartState } from 'src/app/store/cart/cart.state';
+
+import { CustomerState } from 'src/app/store/customer/customer.state';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AppFacade {
+export class StartFacade {
 
-    @Select(CustomerState.getCustomer) customer$: Observable<any>;
+    @Select(CartState.getCart) cart$: Observable<any>;
 
     @Select(CustomerState.isLoggedIn) isCustomerLoggedIn$: Observable<any>;
+
+    @Select(CustomerState.getCustomer) customer$: Observable<any>;
 
     readonly viewState$: Observable<any>;
 
     constructor() {
         this.viewState$ = combineLatest(
             [
-                this.customer$,
+                this.cart$,
                 this.isCustomerLoggedIn$,
+                this.customer$,
             ]
         ).pipe(
             map((
                 [
+                    cart,
+                    isCustomerLoggedIn,
                     customer,
-                    isCustomerLoggedIn,                ]
+                ]
             ) => ({
+                cart,
+                isCustomerLoggedIn,
                 customer,
-                isCustomerLoggedIn,            }))
+            }))
         );
     }
 }
