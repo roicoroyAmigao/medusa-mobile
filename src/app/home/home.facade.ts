@@ -10,8 +10,6 @@ import { CustomerState } from '../store/customer/customer.state';
 })
 export class HomeFacade {
 
-    @Select(CategoriesState.getgetCategoreisTheme) categories$: Observable<any>;
-
     @Select(CustomerState.getCustomer) customer$: Observable<any>;
 
     @Select(CustomerState.isLoggedIn) isCustomerLoggedIn$: Observable<any>;
@@ -21,18 +19,15 @@ export class HomeFacade {
     constructor() {
         this.viewState$ = combineLatest(
             [
-                this.categories$,
                 this.customer$,
-                this.isCustomerLoggedIn$,            ]
+                this.isCustomerLoggedIn$,]
         ).pipe(
             map((
                 [
-                    categories,
                     customer,
                     isCustomerLoggedIn,
                 ]
             ) => ({
-                categories,
                 customer,
                 isCustomerLoggedIn,
             }))

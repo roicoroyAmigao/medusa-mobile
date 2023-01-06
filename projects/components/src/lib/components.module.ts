@@ -18,13 +18,11 @@ import { CategoriesPage } from './components/categories/categories.page';
 import { ContactCardPage } from './components/contact-card/contact-card.page';
 import { SettingsComponent } from './components/settings/settings.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ImagePickerComponent } from './components/image-picker/image-picker.component';
-import { LanguageComponent } from './components/language-component/language.component';
 import { AddressCardComponent } from './components/address-card/address-card.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 
 @NgModule({
-    imports: [
+  imports: [
     CommonModule,
     FormsModule,
     IonicModule,
@@ -46,8 +44,6 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     ContactCardPage,
     SettingsComponent,
     HeaderComponent,
-    ImagePickerComponent,
-    LanguageComponent,
     AddressCardComponent,
     OrderDetailsComponent
   ],
@@ -64,8 +60,6 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     ContactCardPage,
     SettingsComponent,
     HeaderComponent,
-    ImagePickerComponent,
-    LanguageComponent,
     AddressCardComponent,
     OrderDetailsComponent
   ]

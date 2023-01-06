@@ -36,7 +36,9 @@ export class AppComponent {
     public store: Store,
     private platform: Platform,
     private facade: AppFacade,
-  ) { }
+  ) {
+    this.initApp();
+  }
 
   async initApp() {
     this.platform.ready().then(() => {

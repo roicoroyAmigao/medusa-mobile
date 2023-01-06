@@ -1,18 +1,4 @@
 <div [formGroup]="userForm">
-
-  <ion-item>
-    <ion-label position="floating" color="primary">Username</ion-label>
-    <ion-input type="text" formControlName="username"></ion-input>
-  </ion-item>
-  <div class="validation-errors">
-    <ng-container *ngFor="let validation of validation_messages.username">
-      <div class="error-message"
-        *ngIf="userForm.get('username').hasError(validation.type) && (userForm.get('username').dirty || userForm.get('username').touched)">
-        <ion-icon name="information-circle-outline"></ion-icon>
-        {{ validation.message }}
-      </div>
-    </ng-container>
-  </div>
   <ion-item>
     <ion-label position="floating" color="primary">First Name</ion-label>
     <ion-input type="text" formControlName="first_name"></ion-input>

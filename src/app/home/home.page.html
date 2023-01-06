@@ -1,4 +1,4 @@
-<!-- <lib-header *ngIf="viewState$ | async as vs" [headerData]="vs"></lib-header> -->
+<lib-header *ngIf="viewState$ | async as vs" [headerData]="vs"></lib-header>
 
 <ion-content [fullscreen]="true">
     <ion-header collapse="condense">
@@ -10,8 +10,8 @@
     </ion-header>
 
     <ion-row>
-        <ion-col size="12" *ngIf="viewState$ | async as vs">
-            <app-categories [categoriesData]="vs.categories"></app-categories>
+        <ion-col size="12">
+            <app-categories [categoriesData]="categoriesData"></app-categories>
         </ion-col>
     </ion-row>
 

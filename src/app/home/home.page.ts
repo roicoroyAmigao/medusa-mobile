@@ -22,34 +22,27 @@ export class HomePage {
 
     viewState$: Observable<any>;
 
-    headerData: IHeaderData = {
-        avatar: '',
-    }
-
     categoriesData: ICategoriesList[] = [
-        {
-            id: '1',
-            url: 'products-list',
-            title: 'Products',
-            image: 'assets/shapes.svh',
-        }
+
     ];
 
     constructor(
         private navigation: NavigationService,
         private facade: HomeFacade,
         private auth: AppAuthService,
-        private store: Store,
     ) {
         this.viewState$ = this.facade.viewState$;
-        // this.viewState$.subscribe((state) => {
-        //     console.log(state);
-        //     this.categoriesData = state?.categories;
-        // });
+        this.viewState$.subscribe((state) => {
+            console.log(state);
+        });
+        this.categoriesData.push({
+            id: '1',
+            url: 'products-list',
+            title: 'Products',
+            image: 'assets/shapes.svg',
+        })
     }
-    ionViewWillEnter() {
-        this.store.dispatch(new CategoriesActions.GetCategories());
-    }
+
     enterTestPage() {
         this.navigation.navigateForward('/test', 'forward');
     }

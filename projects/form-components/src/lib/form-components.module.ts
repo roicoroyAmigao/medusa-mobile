@@ -12,10 +12,6 @@ import { CustomComponentsModule } from 'projects/components/src/public-api';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsModule } from '@ngxs/store';
-import { ColorsFormComponent } from './components/colors-form/colors-form.component';
-import { ColorPickerModule } from 'ngx-color-picker';
-import { LanguageFormComponent } from './components/language-form/language-form.component';
-import { FcmFormComponent } from './components/fcm-form/fcm-form.component';
 import { GuestFormComponent } from './components/guest-form/guest-form.component';
 import { AddressDetailsFormComponent } from './components/address-details-form /address-details-form.component';
 
@@ -30,7 +26,6 @@ import { AddressDetailsFormComponent } from './components/address-details-form /
     NgxsStoragePluginModule,
     ReactiveFormsModule,
     CustomComponentsModule,
-    ColorPickerModule
   ],
   declarations: [
     PasswordFormComponent,
@@ -38,9 +33,7 @@ import { AddressDetailsFormComponent } from './components/address-details-form /
     AddressFormComponent,
     LoginFormComponent,
     UserFormComponent,
-    ColorsFormComponent,
-    LanguageFormComponent,
-    FcmFormComponent,
+
     GuestFormComponent,
     AddressDetailsFormComponent
   ],
@@ -50,9 +43,6 @@ import { AddressDetailsFormComponent } from './components/address-details-form /
     AddressFormComponent,
     LoginFormComponent,
     UserFormComponent,
-    ColorsFormComponent,
-    LanguageFormComponent,
-    FcmFormComponent,
     GuestFormComponent,
     AddressDetailsFormComponent
   ]

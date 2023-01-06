@@ -6,9 +6,6 @@ import { AddressesActions } from "../addresses/addresses.actions";
 import { LogErrorEntry } from "../errors-logging/errors-logging.actions";
 import { IRegisterAddress } from "../../../../projects/types/types.interfaces";
 import { CartActions } from "./cart.actions";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { CookieService } from "ngx-cookie-service";
-import { DOCUMENT } from "@angular/common";
 
 export interface CartStateModel {
     cartId: string | any;
@@ -16,7 +13,7 @@ export interface CartStateModel {
     recentCompletedOrder: any | any;
     selectedRegion: string | any;
     selectedCountry: string | any;
-    isGuest:boolean | any;
+    isGuest: boolean | any;
 }
 
 export const initStateModel: CartStateModel = {
@@ -37,9 +34,6 @@ export class CartState {
 
     constructor(
         private store: Store,
-        private http: HttpClient,
-        private cookieService: CookieService,
-        @Inject(DOCUMENT) private document: Document,
     ) {
         this.medusaClient = new Medusa({ baseUrl: environment.MEDUSA_API_BASE_PATH, maxRetries: 10 });
     }
@@ -380,7 +374,6 @@ export class CartState {
             }
         }
     }
-    headers_json = new HttpHeaders().set('Content-Type', 'application/json');
 
     @Action(CartActions.ClearIsGuest)
     async clearIsGuest(ctx: StateContext<CartStateModel>) {

@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, forwardRef, OnDestroy, OnInit } fro
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlValueAccessor, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { PasswordValidator } from '../../validators/password.validator';
-import Validation from '../../validators/validation';
 
 @Component({
   selector: 'app-user-form',
@@ -44,13 +43,6 @@ export class UserFormComponent implements ControlValueAccessor, OnDestroy {
   }
 
   validation_messages = {
-    'username': [
-      { type: 'required', message: 'Username is required.' },
-      { type: 'minlength', message: 'Username must be at least 5 characters long.' },
-      { type: 'maxlength', message: 'Username cannot be more than 25 characters long.' },
-      { type: 'pattern', message: 'Your username must contain only numbers and letters.' },
-      { type: 'validUsername', message: 'Your username has already been taken.' }
-    ],
     'first_name': [
       { type: 'required', message: 'Name is required.' }
     ],
@@ -94,7 +86,6 @@ export class UserFormComponent implements ControlValueAccessor, OnDestroy {
     });
 
     this.userForm = this.formBuilder.group({
-      username: new FormControl('', [Validators.required]),
       first_name: new FormControl('', [Validators.required]),
       last_name: new FormControl('', [Validators.required]),
       email: new FormControl('', [

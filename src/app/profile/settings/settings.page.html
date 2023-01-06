@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/test"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Test Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <app-fcm-form #fcmForm></app-fcm-form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <app-language-form #languageForm></app-language-form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <app-colors-form #colorsForm></app-colors-form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-col size="12">
+      <ion-button (click)="submitForm()" expand="block" fill="solid" shape="round" color="tertiary">
+        Submit Form
+      </ion-button>
+    </ion-col>
+  </ion-toolbar>
+</ion-footer>

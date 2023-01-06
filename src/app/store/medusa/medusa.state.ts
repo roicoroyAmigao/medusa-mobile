@@ -1,20 +1,15 @@
 import { Injectable } from "@angular/core";
 import Medusa from "@medusajs/medusa-js";
 import { State, Store, Selector, Action, StateContext } from "@ngxs/store";
-import { CookieService } from "ngx-cookie-service";
 import { environment } from "src/environments/environment";
 import { CustomerActions } from "../customer/customer.actions";
 import { MedusaActions } from "../medusa/medusa.actions";
 
 export interface MedusaStateModel {
-    // cartId: string | any;
-    // cart: string | any;
     secretKey: any | null;
 }
 
 export const initMedusaStateModel: MedusaStateModel = {
-    // cartId: null,
-    // cart: null,
     secretKey: null,
 };
 @State({
@@ -97,7 +92,7 @@ export class MedusaState {
         }
     }
     @Action(MedusaActions.UnSetSecretKey)
-    async unSetSecretKey(ctx: StateContext<MedusaStateModel>) {
+    async unSetSecretKey(ctx: StateContext<MedusaStateModel>): Promise<any> {
 
         try {
             return ctx.patchState({
@@ -114,8 +109,6 @@ export class MedusaState {
     @Action(MedusaActions.LogOut)
     logOut(ctx: StateContext<MedusaStateModel>) {
         ctx.patchState({
-            // cartId: null,
-            // cart: null,
             secretKey: null,
         });
     }

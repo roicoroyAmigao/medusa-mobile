@@ -5,7 +5,6 @@ import { ICustomerLoginData, IStrapiLoginData } from 'projects/types/types.inter
 import { AuthRoutePath } from '../route-path.enum';
 import { LoginFormComponent } from 'projects/form-components/src/lib/components/login-form/login-form.component';
 import { NavigationService } from 'projects/services/src/lib/services/navigation.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UtilityService } from 'projects/services/src/lib/services/utility.service';
 
 @Component({
@@ -19,7 +18,7 @@ export class LoginPage {
   @ViewChild('form') form: LoginFormComponent;
 
   loginReq: IStrapiLoginData;
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+
   constructor(
     private store: Store,
     private navigation: NavigationService,
@@ -31,26 +30,18 @@ export class LoginPage {
     this.form?.loginForm.get('password').setValue("Rwbento123");
   }
 
-  public async login(): Promise<void> {
+  async login(): Promise<void> {
 
-    this.utility.presentLoading('...');
-
-    const strapiRequest: IStrapiLoginData = {
-      identifier: this.form?.loginForm.get('email').value,
-      password: this.form?.loginForm.get('password').value,
-    };
     const medusaRequest: ICustomerLoginData = {
       email: this.form?.loginForm.get('email').value,
       password: this.form?.loginForm.get('password').value,
     };
+
     this.store.dispatch(new CustomerActions.Login(medusaRequest))
 
     const errorEntry = this.store.selectSnapshot<any>((state) => state.errorsLogging.errorEntry);
     if (errorEntry === null) {
       this.navigation.navigateFlip('/home');
-      this.utility.dismissLoading();
-    } else {
-      this.utility.dismissLoading();
     }
   }
   back(): void {

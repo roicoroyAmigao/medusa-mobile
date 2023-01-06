@@ -6,9 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage-angular';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxStripeModule } from 'ngx-stripe';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
@@ -21,7 +20,6 @@ import { CustomerRegisterState } from './store/customer-register/customer-regist
 import { CustomerState } from './store/customer/customer.state';
 import { ErrorsLoggingStateModule } from './store/errors-logging/errors-logging.state';
 import { FormsState } from './store/forms/forms.state';
-import { LanguageState } from './store/language/language.state';
 import { MedusaState } from './store/medusa/medusa.state';
 import { PaymentState } from './store/payment/payment.state';
 import { ProductState } from './store/products/products.state';
@@ -49,7 +47,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
         CartState,
         ShippingState,
         PaymentState,
-        LanguageState,
+        MedusaState,
         CategoriesState,
       ]),
       NgxsStoragePluginModule.forRoot({
@@ -63,6 +61,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
           'cart',
           'shipping',
           'payment',
+          "medusa",
           "categories",
         ]
       }),
@@ -73,7 +72,9 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
       NgxsLoggerPluginModule.forRoot({ disabled: true }),
       NgxStripeModule.forRoot(environment.STRIPE_KEY),
     ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
