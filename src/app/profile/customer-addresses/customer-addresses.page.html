@@ -17,7 +17,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid *ngIf="vs.session">
+  <ion-grid *ngIf="vs.session; else loggedOut">
     <ion-row class="buttons-row ion-text-center">
       <ion-col size="12">
         <ion-button color="success" (click)="newCustomerShippingAddress()" fill="outline" shape="round">
@@ -62,4 +62,13 @@
       </ion-row>
     </ion-card>
   </ion-grid>
+
+  <ng-template #loggedOut>
+    <ion-row class="buttons-row ion-text-center">
+      <ion-col size="12">
+        <ion-note>Login in with a Session please...</ion-note>
+      </ion-col>
+    </ion-row>
+  </ng-template>
+
 </ion-content>

@@ -41,7 +41,8 @@ export class CustomerAddressesPage implements OnDestroy {
         take(1)
       )
       .subscribe((state) => {
-        if (!state.isGuest && state.isCustomerLoggedIn && state.isUserLoggedIn) {
+        console.log(state);
+        if (!state.isGuest && state.isCustomerLoggedIn) {
           this.store.dispatch(new CustomerActions.GetSession())
         }
       });

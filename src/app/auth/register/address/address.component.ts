@@ -1,11 +1,10 @@
 import { Component, OnDestroy, ViewChild } from "@angular/core";
 import { Store } from "@ngxs/store";
-import { Observable, Subject, take, takeUntil } from "rxjs";
+import { Observable, Subject, takeUntil } from "rxjs";
 import { CustomerRegisterActions } from "src/app/store/customer-register/customer-register.actions";
 import { IRegisterAddress } from "projects/types/types.interfaces";
 import { AuthRoutePath } from "../../route-path.enum";
 import { NavigationService } from "projects/services/src/lib/services/navigation.service";
-import { UtilityService } from "projects/services/src/lib/services/utility.service";
 import { RegisterAddressFacade } from "./address.facade";
 import { AddressFormComponent } from "projects/form-components/src/lib/components/address-form/address-form.component";
 
@@ -30,7 +29,6 @@ export class AddressComponent implements OnDestroy {
     private store: Store,
     private readonly facade: RegisterAddressFacade,
     private navigation: NavigationService,
-    private utility: UtilityService,
   ) {
     this.viewState$ = this.facade.viewState$;
     this.viewState$.pipe(

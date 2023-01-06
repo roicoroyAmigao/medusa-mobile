@@ -15,18 +15,23 @@ export interface IHeaderData {
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-  @Input() set headerData(value: IHeaderData | any) {
-    this._isLoggedIn = value.isUserLoggedIn && value.isCustomerLoggedIn ? true : false;
+  @Input() set headerData(value: any) {
+    // console.log(value.isCustomerLoggedIn);
+    this._isLoggedIn = value.isCustomerLoggedIn != null ? value?.isCustomerLoggedIn : false;
   };
   get isLoggedIn(): boolean {
-    return this._isLoggedIn;
+    if (this._isLoggedIn) {
+      console.log(this._isLoggedIn);
+      return this._isLoggedIn;
+    } else {
+      return false;
+    }
   }
   private _isLoggedIn: boolean;
 
   constructor(
     private navigation: NavigationService,
     private auth: AppAuthService,
-    private store: Store,
     public menu: MenuController,
   ) { }
 

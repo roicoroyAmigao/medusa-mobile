@@ -25,10 +25,10 @@ export class LoginPage {
     private utility: UtilityService,
   ) { }
 
-  // ionViewDidEnter() {
-  //   this.form?.loginForm.get('email').setValue("roicoroy@test.com");
-  //   this.form?.loginForm.get('password').setValue("Rwbento123");
-  // }
+  ionViewDidEnter() {
+    this.form?.loginForm.get('email').setValue("roicoroy@yahoo.com.br");
+    this.form?.loginForm.get('password').setValue("Rwbento123");
+  }
 
   async login(): Promise<void> {
 
@@ -40,9 +40,12 @@ export class LoginPage {
     this.store.dispatch(new CustomerActions.Login(medusaRequest))
 
     const errorEntry = this.store.selectSnapshot<any>((state) => state.errorsLogging.errorEntry);
-    if (errorEntry === null) {
-      this.navigation.navigateFlip('/home');
-    }
+
+    setTimeout(() => {
+      if (errorEntry === null) {
+        this.navigation.navigateFlip('/home');
+      }
+    }, 50);
   }
   back(): void {
     this.navigation.navControllerDefault('/home');

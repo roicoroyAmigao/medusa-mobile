@@ -12,7 +12,7 @@ export const environment = {
   production: false,
   API_BASE_PATH: 'http://localhost:1337/api',
   BASE_PATH: 'http://localhost:1337',
-  MEDUSA_API_BASE_PATH: 'http://localhost:9000',
+  MEDUSA_API_BASE_PATH: 'https://amigao-medusa-api.onrender.com',
   STRIPE_KEY: 'pk_test_2qqvb6DTqKondL46mnEjZ68e',
   populate: '?populate=*',
 };

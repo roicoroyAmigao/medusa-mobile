@@ -1,12 +1,11 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
-import { TranslateService } from "@ngx-translate/core";
 import { Store } from "@ngxs/store";
 import { CustomerActions } from "src/app/store/customer/customer.actions";
-import { IStrapiRegisterData, IStrapiLoginData, ICustomerLoginData, ICustomerRegisterData } from "projects/types/types.interfaces";
 import { AuthRoutePath } from "../../route-path.enum";
 import { NavigationService } from "projects/services/src/lib/services/navigation.service";
 import { UserFormComponent } from "projects/form-components/src/lib/components/user-form/user-form.component";
+import { ICustomerRegisterData, ICustomerLoginData } from "projects/types/types.interfaces";
 
 @Component({
   selector: 'app-user',
@@ -21,7 +20,6 @@ export class UserComponent {
 
   constructor(
     protected router: Router,
-    protected translate: TranslateService,
     private store: Store,
     private navigation: NavigationService,
   ) { }
