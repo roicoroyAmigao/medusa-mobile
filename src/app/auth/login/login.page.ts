@@ -25,10 +25,10 @@ export class LoginPage {
     private utility: UtilityService,
   ) { }
 
-  ionViewDidEnter() {
-    this.form?.loginForm.get('email').setValue("roicoroy@test.com");
-    this.form?.loginForm.get('password').setValue("Rwbento123");
-  }
+  // ionViewDidEnter() {
+  //   this.form?.loginForm.get('email').setValue("roicoroy@test.com");
+  //   this.form?.loginForm.get('password').setValue("Rwbento123");
+  // }
 
   async login(): Promise<void> {
 

@@ -73,7 +73,6 @@ export class CartState {
     async createMedusaCart(ctx: StateContext<CartStateModel>) {
         try {
             let cart = await this.medusaClient.carts.create();
-            // this.store.dispatch(new CustomerActions.GetSession());
             ctx.patchState({
                 cart: cart?.cart,
                 cartId: cart?.cart.id,
@@ -102,7 +101,7 @@ export class CartState {
         catch (err: any) {
             if (err) {
                 this.store.dispatch(new LogErrorEntry(err));
-                console.log(err);
+
             }
         }
 
@@ -123,17 +122,13 @@ export class CartState {
 
             this.store.dispatch(new AddressesActions.GetRegionList());
             const regionList = await this.store.selectSnapshot<any>((state: any) => state.addresses?.regionList);
-            console.log(regionList);
-
 
             const region_id = await this.buildRegionCode(editedCustomer.country_code, regionList);
-            console.log(region_id);
 
             let regionRes = await this.medusaClient.carts.update(cartId, {
                 region_id: region_id,
                 country_code: editedCustomer?.country_code
             });
-            // console.log(regionRes.cart.customer_id);
 
             let cartRes = await this.medusaClient.carts.update(cartId, {
                 billing_address: editedCustomer,
@@ -143,7 +138,6 @@ export class CartState {
                 cart: cartRes?.cart,
                 cartId: cartRes?.cart.id,
             });
-            // this.store.dispatch(new CartActions.GetMedusaCart(cartId));
         }
         catch (err: any) {
             if (err) {
@@ -165,9 +159,7 @@ export class CartState {
                 phone: address?.phone,
             };
             const regionList = await this.store.selectSnapshot<any>((state: any) => state.addresses?.regionList);
-            console.log(regionList);
             const region_id = await this.buildRegionCode(editedCustomer.country_code, regionList);
-            console.log(region_id);
             let regionRes = await this.medusaClient.carts.update(cartId, {
                 region_id: region_id,
                 country_code: editedCustomer?.country_code

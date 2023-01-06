@@ -18,6 +18,16 @@
               <ion-label>{{ 'Home' }}</ion-label>
             </ion-item>
 
+            <ion-item routerDirection="root" routerLink="/products-list" lines="none" detail="false">
+              <ion-icon slot="start" name="cart"></ion-icon>
+              <ion-label>{{ 'Products List' }}</ion-label>
+            </ion-item>
+
+            <ion-item routerDirection="root" routerLink="/checkout/flow/start" lines="none" detail="false">
+              <ion-icon slot="start" name="cart"></ion-icon>
+              <ion-label>{{ 'Checkout' }}</ion-label>
+            </ion-item>
+
             <ion-item *ngIf="!vs.isCustomerLoggedIn" routerDirection="root" routerLink="/auth/login" lines="none"
               detail="false">
               <ion-icon slot="start" name="home"></ion-icon>
@@ -37,14 +47,6 @@
           </ion-menu-toggle>
         </ion-list>
 
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
