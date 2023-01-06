@@ -3,7 +3,6 @@ import { Select, Store } from '@ngxs/store';
 import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AddressesState } from 'src/app/store/addresses/addresses.state';
-import { CustomerState } from 'src/app/store/customer/customer.state';
 
 @Injectable({
     providedIn: 'root'

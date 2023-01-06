@@ -4,7 +4,6 @@ import { Store } from "@ngxs/store";
 import { fade } from "projects/services/src/lib/animations/animations";
 import { Subscription, Observable, Subject } from "rxjs";
 import { AddressesActions } from "src/app/store/addresses/addresses.actions";
-import { TestAddressFacade } from "src/app/test/user/address.test-facade";
 
 @Component({
   selector: 'app-address-form',
@@ -41,7 +40,6 @@ export class AddressFormComponent implements OnInit, ControlValueAccessor, OnDes
 
   subscriptions: Subscription[] = [];
 
-  private readonly ngUnsubscribe = new Subject();
 
   get value() {
     return this.adressForm.value;
@@ -121,14 +119,12 @@ export class AddressFormComponent implements OnInit, ControlValueAccessor, OnDes
     this.onTouched = fn;
   }
   validate(_: FormControl) {
-    // return this.adressForm.valid ? null : { passwords: { valid: false, }, };
+    return this.adressForm.valid ? null :  this.adressForm.valid;
   }
   reset() {
     this.adressForm.reset();
   }
   ngOnDestroy() {
-    this.ngUnsubscribe.next(null);
-    this.ngUnsubscribe.complete();
     this.subscriptions.forEach(s => s.unsubscribe());
     this.reset();
   }

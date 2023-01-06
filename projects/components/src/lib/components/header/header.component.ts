@@ -16,19 +16,11 @@ export interface IHeaderData {
 export class HeaderComponent implements OnInit, AfterViewInit {
 
   @Input() set headerData(value: IHeaderData | any) {
-    // console.log(value);
-    this._headerAvatar = value.avatar ? value.avatar : 'assets/shapes.svg';
     this._isLoggedIn = value.isUserLoggedIn && value.isCustomerLoggedIn ? true : false;
   };
-
-  get headerAvatar(): string {
-    return this._headerAvatar;
-  }
   get isLoggedIn(): boolean {
     return this._isLoggedIn;
   }
-
-  private _headerAvatar: string;
   private _isLoggedIn: boolean;
 
   constructor(
