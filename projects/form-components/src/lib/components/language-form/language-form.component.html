@@ -1,0 +1,55 @@
+<div [formGroup]="languageForm" *ngIf="availableLanguages$ | async as al">
+
+  <ion-item-divider>
+    <ion-label for="language">{{ 'Language' | translate}}</ion-label>
+  </ion-item-divider>
+  <ion-radio-group formControlName="language">
+    <ion-row class="radio-tags" *ngFor="let lang of al">
+      <ion-item class="radio-tag" lines="none" (click)="selectLanguage(lang)">
+        <ion-label class="tag-label">
+          {{ lang.name | translate }}
+        </ion-label>
+        <ion-radio [value]="lang.code"></ion-radio>
+      </ion-item>
+    </ion-row>
+  </ion-radio-group>
+
+
+  <ion-item>
+    <ion-row class="ion-text-left">
+      <ion-card-header>
+        <ion-card-subtitle>
+          {{ 'Device' | translate}}
+        </ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-col size="12">
+        <ion-text color="primary">
+          {{ 'model' | translate | uppercase }}:
+        </ion-text>
+        {{ stateDeviceInfo?.model }}
+      </ion-col>
+      <ion-col size="12">
+        <ion-text color="primary">
+          {{ 'platform' | translate | uppercase }}:
+        </ion-text>
+        {{ stateDeviceInfo?.platform }}
+      </ion-col>
+      <ion-col size="12">
+        <ion-text color="primary">
+          {{ 'operatingSystem' | translate | uppercase }}:
+        </ion-text>
+        {{ stateDeviceInfo?.operatingSystem }}
+      </ion-col>
+      <ion-col size="12">
+        <ion-text color="primary">
+          {{ 'manufacturer' | translate | uppercase }}:
+        </ion-text>
+        {{ stateDeviceInfo?.manufacturer }}
+      </ion-col>
+    </ion-row>
+
+  </ion-item>
+
+
+</div>

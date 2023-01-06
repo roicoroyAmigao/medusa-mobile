@@ -1,0 +1,106 @@
+<!-- <form [formGroup]="colorsForm">
+  hello
+</form> -->
+<div class="filters-content">
+
+  <form [formGroup]="radioColorForm">
+    <ion-radio-group>
+      <ion-row class="color-radio-group">
+        <ion-item #primaryRef class="color-radio color-radio-primary" style="--color-radio-background: {{ primary }};"
+          [(colorPicker)]="primary" [style.background]="primary" [cpOKButton]="true" [cpOutputFormat]="'hex'"
+          (colorPickerChange)="capturePrimaryColour($event)">
+          <app-aspect-ratio [ratio]="{w:4, h:4}">
+            <div class="color-radio-inner-wrapper">
+              <ion-label class="color-label">Primary</ion-label>
+              <ion-radio [value]="primary" formControlName="primary"></ion-radio>
+            </div>
+            <ion-icon name="heart" color="primary"></ion-icon>
+          </app-aspect-ratio>
+        </ion-item>
+
+        <ion-item #secondaryRef class="color-radio color-radio-secondary" style="--color-radio-background: {{ secondary }};"
+          [(colorPicker)]="secondary" [style.background]="secondary" [cpOKButton]="true" [cpOutputFormat]="'hex'"
+          (colorPickerChange)="captureSecondaryColour($event)">
+          <app-aspect-ratio [ratio]="{w:4, h:4}">
+            <div class="color-radio-inner-wrapper">
+              <ion-label class="color-label">Secondary</ion-label>
+              <ion-radio [value]="secondary" formControlName="secondary"></ion-radio>
+            </div>
+          </app-aspect-ratio>
+        </ion-item>
+
+        <ion-item #tertiaryRef class="color-radio color-radio-tertiary" style="--color-radio-background: {{ tertiary }};"
+          [(colorPicker)]="tertiary" [style.background]="tertiary" [cpOKButton]="true" [cpOutputFormat]="'hex'"
+          (colorPickerChange)="captureTertiaryColour($event)">
+          <app-aspect-ratio [ratio]="{w:4, h:4}">
+            <div class="color-radio-inner-wrapper">
+              <ion-label class="color-label">Tertiary</ion-label>
+              <ion-radio [value]="tertiary" formControlName="tertiary"></ion-radio>
+            </div>
+          </app-aspect-ratio>
+        </ion-item>
+
+      </ion-row>
+    </ion-radio-group>
+  </form>
+
+  <!-- <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Color chooser</ion-label>
+    </ion-item-divider>
+
+    <form [formGroup]="radioColorForm">
+      <ion-radio-group formControlName="primary">
+        <ion-row class="color-radio-group">
+          <ion-item #primaryRef class="color-radio" style="--color-radio-background: {{ primary }};"
+            [(colorPicker)]="primary" [style.background]="primary" [cpOKButton]="true" [cpOutputFormat]="'hex'"
+            (colorPickerChange)="capturePrimaryColour($event)">
+            <app-aspect-ratio [ratio]="{w:4, h:4}">
+              <div class="color-radio-inner-wrapper">
+                <ion-label class="color-label">Primary</ion-label>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="heart" color="primary"></ion-icon>
+          </ion-item>
+        </ion-row>
+      </ion-radio-group>
+
+      <ion-radio-group formControlName="secondary">
+        <ion-row class="color-radio-group">
+          <ion-item #secondaryRef class="color-radio" style="--color-radio-background: {{ secondary }};"
+            [(colorPicker)]="secondary" [style.background]="secondary" [cpOKButton]="true" [cpOutputFormat]="'hex'"
+            (colorPickerChange)="captureSecondaryColour($event)">
+            <app-aspect-ratio [ratio]="{w:4, h:4}">
+              <div class="color-radio-inner-wrapper">
+                <ion-label class="color-label">Secondary</ion-label>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="heart" color="secondary"></ion-icon>
+          </ion-item>
+        </ion-row>
+      </ion-radio-group>
+
+      <ion-radio-group formControlName="tertiary">
+        <ion-row class="color-radio-group">
+          <ion-item #tertiaryRef class="color-radio" style="--color-radio-background: {{ tertiary }};"
+            [(colorPicker)]="tertiary" [style.background]="tertiary" [cpOKButton]="true" [cpOutputFormat]="'hex'"
+            (colorPickerChange)="captureTertiaryColour($event)">
+            <app-aspect-ratio [ratio]="{w:4, h:4}">
+              <div class="color-radio-inner-wrapper">
+                <ion-label class="color-label">Tertiary</ion-label>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="heart" color="tertirary"></ion-icon>
+          </ion-item>
+        </ion-row>
+      </ion-radio-group>
+
+    </form>
+  </ion-item-group> -->
+</div>

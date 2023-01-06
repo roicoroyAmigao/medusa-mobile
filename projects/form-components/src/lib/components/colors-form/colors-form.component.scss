@@ -1,0 +1,85 @@
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+::ng-deep ion-modal.chooser-modal {
+    --width: 75%;
+    // --min-width: 320px;
+    --height: 75%;
+    // --border-radius: 6px;
+    // --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+
+@import "src/theme/mixins/inputs/checkbox-tag";
+@import "src/theme/mixins/inputs/radio-tag";
+@import "src/theme/mixins/inputs/color-radio";
+
+:host {
+    --page-margin: var(--app-fair-margin);
+    --page-background: var(--app-background-shade);
+
+    --page-tags-gutter: 5px;
+
+    --page-color-radio-items-per-row: 5;
+    --page-color-radio-gutter: 3%;
+    --page-color-radio-width: calc((100% + (1 * var(--page-color-radio-gutter) * var(--page-color-radio-items-per-row))) / var(--page-color-radio-items-per-row));
+}
+
+.filters-content {
+    --background: var(--page-background);
+
+    ion-row {
+        display: flex;
+        justify-content: center;
+    }
+
+    ion-item-divider {
+        --background: var(--page-background);
+        --padding-bottom: calc(var(--page-margin) / 2);
+        --padding-top: calc(var(--page-margin) / 2);
+        --padding-start: var(--page-margin);
+        --padding-end: var(--page-margin);
+
+        border: none;
+    }
+
+    .color-radio-group {
+        // Account for 2% start and end margin set by .color-tag childs
+        padding: var(--page-margin) calc(var(--page-margin) - var(--page-color-radio-gutter));
+        background-color: var(--ion-color-lightest);
+
+        .color-radio {
+            // --color-radio-color: #FFF;
+            // --color-radio-background: #CCC;
+            --color-radio-active-border-rgb: var(--ion-color-darkest-rgb);
+            --color-radio-border-radius: 40%;
+
+            flex: 0 0 var(--page-color-radio-width);
+            max-width: var(--page-color-radio-width);
+            margin: var(--page-color-radio-gutter);
+
+            .color-radio-inner-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .color-radio-primary {
+            --color-radio-background: var(--ion-color-primary);
+        }
+        .color-radio-secondary {
+            --color-radio-background: var(--ion-color-secondary);
+        }
+        .color-radio-tertiary {
+            --color-radio-background: var(--ion-color-tertiary);
+        }
+
+        @include color-radio();
+    }
+}
