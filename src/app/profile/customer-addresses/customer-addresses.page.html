@@ -10,7 +10,7 @@
 
 <ion-content *ngIf="viewState$ | async as vs">
 
-  <ion-grid *ngIf="vs.session; else myelse">
+  <ion-grid *ngIf="vs.session">
     <ion-toolbar>
       <ion-text>Customer Session Session Addresses</ion-text>
     </ion-toolbar>
@@ -58,10 +58,4 @@
       </ion-row>
     </ion-card>
   </ion-grid>
-
-  <ng-template #myelse>
-
-  </ng-template>
-
-
 </ion-content>

@@ -1,15 +1,8 @@
 <lib-header *ngIf="viewState$ | async as vs" [headerData]="vs"></lib-header>
 
 <ion-content>
-
   <ion-grid>
-
     <ion-row>
-
-      <div *ngIf="viewState$ | async as vs">
-        <app-profile-form [profileData]="vs" #profileForm></app-profile-form>
-      </div>
-
       <ion-col size="12">
         <ion-button (click)="ordersPage()" expand="block" fill="solid" shape="round">
           See completed Orders
@@ -17,21 +10,7 @@
         <ion-button (click)="addressesPage()" expand="block" fill="solid" shape="round">
           Manage Customer Address
         </ion-button>
-        <ion-button (click)="settingsPage()" expand="block" fill="solid" shape="round">
-          Manage App Settings
-        </ion-button>
       </ion-col>
-
     </ion-row>
-
   </ion-grid>
-
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-button [disabled]="true" (click)="submitProfileForm()" expand="block" fill="solid" shape="round">
-      Submit Form
-    </ion-button>
-  </ion-toolbar>
-</ion-footer>

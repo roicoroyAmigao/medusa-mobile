@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { RegisterPageRoutingModule } from './register-routing.module';
 
-import { TranslateModule } from '@ngx-translate/core';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsModule } from '@ngxs/store';
@@ -21,7 +20,6 @@ import { FormComponentsModule } from 'projects/form-components/src/public-api';
     FormsModule,
     IonicModule,
     RegisterPageRoutingModule,
-    TranslateModule,
     FormsModule,
     ReactiveFormsModule,
     NgxsModule,

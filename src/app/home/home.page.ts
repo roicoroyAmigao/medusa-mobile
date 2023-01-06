@@ -9,7 +9,7 @@ import { HomeFacade } from './home.facade';
 import { CategoriesActions } from '../store/categories/categories.actions';
 import { IAppCategories } from '../store/categories/categories.service';
 import { IHeaderData } from 'projects/components/src/lib/components/header/header.component';
-import { ICategoriesList } from 'projects/components/src/lib/components/categories/categories.page';
+import { ICategoriesList } from 'projects/components/src/lib/components/categories/categories.component';
 
 @Component({
     selector: 'app-home',

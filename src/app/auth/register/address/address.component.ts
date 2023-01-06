@@ -1,5 +1,4 @@
 import { Component, OnDestroy, ViewChild } from "@angular/core";
-import { FormGroup, FormBuilder } from "@angular/forms";
 import { Store } from "@ngxs/store";
 import { Observable, Subject, take, takeUntil } from "rxjs";
 import { CustomerRegisterActions } from "src/app/store/customer-register/customer-register.actions";

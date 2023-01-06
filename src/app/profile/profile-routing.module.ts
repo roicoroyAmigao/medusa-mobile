@@ -16,10 +16,6 @@ const routes: Routes = [
     path: 'customer-addresses',
     loadChildren: () => import('./customer-addresses/customer-addresses.module').then( m => m.CustomerAddressesPageModule)
   },
-  {
-    path: 'settings',
-    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
-  }
 ];
 
 @NgModule({

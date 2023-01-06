@@ -14,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { CartMenuComponent } from './components/app-menu/cart-menu.component';
 import { MedusaCartComponent } from './components/medusa-cart/medusa-cart.component';
-import { CategoriesPage } from './components/categories/categories.page';
+import { CategoriesComponent } from './components/categories/categories.component';
 import { ContactCardPage } from './components/contact-card/contact-card.page';
 import { SettingsComponent } from './components/settings/settings.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -40,7 +40,7 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     RatingInputComponent,
     CartMenuComponent,
     MedusaCartComponent,
-    CategoriesPage,
+    CategoriesComponent,
     ContactCardPage,
     SettingsComponent,
     HeaderComponent,
@@ -56,7 +56,7 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     RatingInputComponent,
     CartMenuComponent,
     MedusaCartComponent,
-    CategoriesPage,
+    CategoriesComponent,
     ContactCardPage,
     SettingsComponent,
     HeaderComponent,

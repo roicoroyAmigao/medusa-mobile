@@ -9,14 +9,14 @@ export interface ICategoriesList {
 
 @Component({
   selector: 'app-categories',
-  templateUrl: './categories.page.html',
+  templateUrl: './categories.component.html',
   styleUrls: [
     './styles/categories.page.scss',
     './styles/categories.shell.scss',
     './styles/categories.responsive.scss'
   ]
 })
-export class CategoriesPage implements AfterViewInit {
+export class CategoriesComponent implements AfterViewInit {
   @Input() categoriesData: ICategoriesList[];
 
   constructor(
@@ -26,11 +26,8 @@ export class CategoriesPage implements AfterViewInit {
   ngAfterViewInit(): void {
     console.log(this.categoriesData);
   }
-  // ionViewDidEnter() {
-  //   console.log(this.categoriesData);
-  // }
   navigate(url: string) {
-    console.log('navigate', url);
+    // console.log('navigate', url);
     this.navigation.navigateFlip(url);
   }
 }

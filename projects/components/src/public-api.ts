@@ -4,4 +4,3 @@
 
 export * from './lib/components.module';
 export * from './lib/shell/shell.module';
-// export * from './lib/shell/shell.module';
