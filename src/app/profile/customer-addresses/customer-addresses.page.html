@@ -8,12 +8,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="viewState$ | async as vs">
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="viewState$ | async as vs">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Customer Session Session Addresses
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
   <ion-grid *ngIf="vs.session">
-    <ion-toolbar>
-      <ion-text>Customer Session Session Addresses</ion-text>
-    </ion-toolbar>
     <ion-row class="buttons-row ion-text-center">
       <ion-col size="12">
         <ion-button color="success" (click)="newCustomerShippingAddress()" fill="outline" shape="round">

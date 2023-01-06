@@ -8,9 +8,14 @@
   </ion-toolbar>
 </ion-header>
 
-<lib-header *ngIf="viewState$ | async as vs" [headerData]="vs"></lib-header>
-
-<ion-content *ngIf="viewState$ | async as vs" class="product-details-content">
+<ion-content [fullscreen]="true" *ngIf="viewState$ | async as vs" class="product-details-content">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Details
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
   <ion-row class="slider-row">
     <ion-slides class="details-slides" pager="true" [options]="slidesOptions">

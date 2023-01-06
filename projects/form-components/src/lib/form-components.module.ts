@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -20,7 +19,6 @@ import { AddressDetailsFormComponent } from './components/address-details-form /
     CommonModule,
     FormsModule,
     IonicModule,
-    TranslateModule,
     NgxsModule,
     NgxsFormPluginModule,
     NgxsStoragePluginModule,
@@ -33,7 +31,6 @@ import { AddressDetailsFormComponent } from './components/address-details-form /
     AddressFormComponent,
     LoginFormComponent,
     UserFormComponent,
-
     GuestFormComponent,
     AddressDetailsFormComponent
   ],

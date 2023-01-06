@@ -33,14 +33,14 @@ export class ProductsListinFacade {
                 [
                     customer,
                     isCustomerLoggedIn,
-                    isUserLoggedIn,
-                    user
+                    selectedVariant,
+                    productList
                 ]
             ) => ({
                 customer,
                 isCustomerLoggedIn,
-                isUserLoggedIn,
-                user,
+                selectedVariant,
+                productList,
             }))
         );
     }

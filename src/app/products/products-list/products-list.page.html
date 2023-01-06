@@ -11,7 +11,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Listin
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-content class="fashion-listing-content">
     <ng-container *ngIf="viewState$ | async as vs">
       <ion-row class="items-row">
@@ -36,12 +44,13 @@
           </ion-row>
           <ion-accordion-group>
             <ion-accordion>
-              <ion-item class="ion-padding-top ion-padding-bottom ion-margin-left ion-margin-right" slot="header" color="primary">
+              <ion-item class="ion-padding-top ion-padding-bottom ion-margin-left ion-margin-right" slot="header"
+                color="primary">
                 <ion-label>Price list</ion-label>
               </ion-item>
 
-              <div (click)="selectVariant(variant)" class="price-list-content ion-margin-bottom ion-text-center" slot="content"
-                *ngFor="let variant of product?.variants">
+              <div (click)="selectVariant(variant)" class="price-list-content ion-margin-bottom ion-text-center"
+                slot="content" *ngFor="let variant of product?.variants">
 
                 <ion-label>{{ variant?.title }}</ion-label>
 

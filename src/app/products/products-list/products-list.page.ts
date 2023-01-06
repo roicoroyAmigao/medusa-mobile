@@ -27,9 +27,9 @@ export class ProductsListPage implements OnInit {
   }
   ngOnInit() {
     this.viewState$ = this.facade.viewState$;
-    // this.viewState$.subscribe((state) => {
-    //   console.log(state);
-    // });
+    this.viewState$.subscribe((state) => {
+      console.log(state);
+    });
   }
   async selectVariant(variant: any) {
     this.store.dispatch(new addSelectedVariant(variant));
@@ -43,7 +43,6 @@ export class ProductsListPage implements OnInit {
     await modal.present();
   }
   navigateDetails(product: any) {
-    // this.store.dispatch(new clearSelectedProduct());
     this.navigation.navigateFlip('product-details');
     this.store.dispatch(new addSelectedProduct(product));
   }
