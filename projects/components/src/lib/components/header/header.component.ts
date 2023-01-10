@@ -16,18 +16,16 @@ export interface IHeaderData {
 export class HeaderComponent implements OnInit, AfterViewInit {
 
   @Input() set headerData(value: any) {
-    // console.log(value.isCustomerLoggedIn);
-    this._isLoggedIn = value.isCustomerLoggedIn != null ? value?.isCustomerLoggedIn : false;
+    console.log(value);
+    // this._isLoggedIn = value.isCustomerLoggedIn != null ? value?.isCustomerLoggedIn : false;
   };
-  get isLoggedIn(): boolean {
+  get isLoggedIn(): any {
     if (this._isLoggedIn) {
       console.log(this._isLoggedIn);
       return this._isLoggedIn;
-    } else {
-      return false;
-    }
+    };
   }
-  private _isLoggedIn: boolean;
+  private _isLoggedIn: any;
 
   constructor(
     private navigation: NavigationService,

@@ -29,24 +29,24 @@ export class ShippingComponent {
     this.store.dispatch(new ShippingActions.GetShippingOptions());
   }
 
-  async onAddShippingMethod($event: any) {
+  onAddShippingMethod($event: any) {
     if ($event.detail.value != null) {
       this.store.dispatch(new ShippingActions.AddShippingMethod($event.detail.value));
       this.initPaymentSession();
     }
   }
-  async initPaymentSession() {
+  initPaymentSession() {
     this.store.dispatch(new ShippingActions.CreatePaymentSessions());
   }
-  async onAddPymentSession($event: any) {
+  onAddPymentSession($event: any) {
     this.store.dispatch(new ShippingActions.SetPaymentSession($event.detail.value));
   }
 
-  async openPaymentPage() {
+  openPaymentPage() {
     this.router.navigateByUrl('/checkout/flow/payment');
   }
   back() {
-    this.router.navigateByUrl(RoutePath.cartAddresses);
+    this.router.navigateByUrl('/checkout/flow/' + RoutePath.cartAddresses);
   }
   navigateToPayment() {
     this.router.navigateByUrl(RoutePath.payment);

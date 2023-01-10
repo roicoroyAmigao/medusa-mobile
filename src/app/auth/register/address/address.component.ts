@@ -75,7 +75,7 @@ export class AddressComponent implements OnDestroy {
   }
 
   back(): void {
-    this.navigation.navigateFlip(AuthRoutePath.user);
+    this.navigation.navigateFlip(AuthRoutePath.registerUser);
   }
   ngOnDestroy(): void {
     this.ngUnsubscribe.next(null);

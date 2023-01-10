@@ -17,7 +17,6 @@ export class OrderReviewPage implements OnInit {
   constructor(
     private facade: OrderReviewFacade,
     private navigation: NavigationService,
-    private store: Store,
   ) {
     this.viewState$ = this.facade.viewState$;
     this.viewState$.subscribe((state) => {

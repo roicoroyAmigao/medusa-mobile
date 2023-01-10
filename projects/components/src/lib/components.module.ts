@@ -20,6 +20,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddressCardComponent } from './components/address-card/address-card.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { ItemsComponent } from './components/items/items.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     SettingsComponent,
     HeaderComponent,
     AddressCardComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    ItemsComponent
   ],
   exports: [
     ShellModule,
@@ -61,7 +63,8 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     SettingsComponent,
     HeaderComponent,
     AddressCardComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    ItemsComponent
   ]
 })
 export class CustomComponentsModule { }

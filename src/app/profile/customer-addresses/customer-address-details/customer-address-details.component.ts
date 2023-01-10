@@ -59,13 +59,15 @@ export class CustomerAddressDetailsComponent implements OnDestroy {
     this.addressDetailsForm.adressDetailsForm.get('postal_code').setValue(address?.postal_code);
     this.addressDetailsForm.adressDetailsForm.get('phone').setValue(address?.phone);
   }
-  buildRegionCode(country_code: string, regionList: any): string {
-    const countries = regionList.map((region: any, i: any) => region.countries);
-    const result = [].concat(...countries);
-    const filtered: any = result.filter((region: any) => {
-      return region.iso_2 === country_code;
-    });
-    return filtered[0]?.region_id;
+  buildRegionCode(country_code: string, regionList: any) {
+    if (regionList != null) {
+      const countries = regionList.map((region: any, i: any) => region.countries);
+      const result = [].concat(...countries);
+      const filtered = result.filter((region: any) => {
+        return region.iso_2 === country_code;
+      });
+      return filtered[0]?.region_id;
+    }
   }
   async submitAddressForm() {
     const cart = this.store.selectSnapshot<any>((state) => state.cart.cart);

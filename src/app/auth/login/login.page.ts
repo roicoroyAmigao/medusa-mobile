@@ -51,6 +51,6 @@ export class LoginPage {
     this.navigation.navControllerDefault('/home');
   }
   register(): void {
-    this.navigation.navControllerDefault(AuthRoutePath.user);
+    this.navigation.navControllerDefault(AuthRoutePath.registerUser);
   }
 }

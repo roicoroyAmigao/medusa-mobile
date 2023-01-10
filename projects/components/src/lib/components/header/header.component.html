@@ -5,12 +5,12 @@
                 <ion-icon name="menu"></ion-icon>
             </ion-button>
         </ion-buttons>
-        <ion-buttons *ngIf="isLoggedIn === true" slot="end">
+        <ion-buttons *ngIf="true" slot="end">
             <ion-button (click)="logout()">
                 Logout
             </ion-button>
         </ion-buttons>
-        <ion-buttons *ngIf="isLoggedIn === false" slot="end">
+        <ion-buttons *ngIf="true" slot="end">
             <ion-button (click)="login()" expand="block" fill="clear" shape="round">
                 Login
             </ion-button>

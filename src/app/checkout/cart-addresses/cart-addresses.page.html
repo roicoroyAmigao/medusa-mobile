@@ -1,7 +1,7 @@
 
 <lib-header *ngIf="viewState$ | async as vs" [headerData]="vs"></lib-header>
 
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="medium">
     <ion-buttons slot="start">
       <ion-button (click)="back()">
@@ -9,7 +9,7 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content *ngIf="viewState$ | async as vs">
 

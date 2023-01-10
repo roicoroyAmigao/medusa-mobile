@@ -45,7 +45,7 @@ export class StartComponent {
     this.navigation.navigateForward(AuthRoutePath.login, 'forward');
   }
   registerMedusa() {
-    this.navigation.navigateForward(AuthRoutePath.user, 'forward');
+    this.navigation.navigateForward(AuthRoutePath.registerUser, 'forward');
   }
   async continueAsGuest() {
     const modal = await this.modalCtrl.create({
