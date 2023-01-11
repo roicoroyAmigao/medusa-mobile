@@ -2,8 +2,9 @@ import { Component, forwardRef, ChangeDetectionStrategy, OnInit, OnDestroy, Inpu
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlValueAccessor, FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
 import { Store } from "@ngxs/store";
 import { fade } from "projects/services/src/lib/animations/animations";
-import { Subscription, Observable, Subject } from "rxjs";
+import { Subscription } from "rxjs";
 import { AddressesActions } from "src/app/store/addresses/addresses.actions";
+import { CountryPhone } from './country-phone.model';
 
 @Component({
   selector: 'app-address-form',
@@ -40,13 +41,13 @@ export class AddressFormComponent implements OnInit, ControlValueAccessor, OnDes
 
   subscriptions: Subscription[] = [];
 
+  phoneNumberPlaceholder: string;
 
   get value() {
     return this.adressForm.value;
   }
   set value(value: any) {
     this.adressForm?.setValue(value);
-    this.onChange(value);
     this.onTouched();
   }
   get regionCodeControl() {
@@ -76,6 +77,7 @@ export class AddressFormComponent implements OnInit, ControlValueAccessor, OnDes
     ],
 
   };
+
   constructor(
     private formBuilder: FormBuilder,
     private store: Store,
@@ -93,6 +95,7 @@ export class AddressFormComponent implements OnInit, ControlValueAccessor, OnDes
     });
     this.subscriptions.push(
       this.adressForm.valueChanges.subscribe((value: any) => {
+        console.log(value);
         this.onChange(value);
         this.onTouched();
       })
@@ -103,6 +106,19 @@ export class AddressFormComponent implements OnInit, ControlValueAccessor, OnDes
   }
   async onRegionCodeChange(regionId?: string) {
     this.store.dispatch(new AddressesActions.GetCountries(regionId));
+    this.phoneNumberPlaceholder = '....';
+  }
+
+  onCountryChange(country: any) {
+    this.phoneNumberPlaceholder = this.buildPhoneNumberPlaceholder(country);
+  }
+
+  buildPhoneNumberPlaceholder(country: any): string {
+    const string = new CountryPhone(country.iso_2, country.name);
+    const phoneNumberPlaceholder = `${string.code} ${string.sample_phone}`;
+    console.log(phoneNumberPlaceholder);
+
+    return phoneNumberPlaceholder;
   }
   registerOnChange(fn: any) {
     this.onChange = fn;
@@ -119,7 +135,7 @@ export class AddressFormComponent implements OnInit, ControlValueAccessor, OnDes
     this.onTouched = fn;
   }
   validate(_: FormControl) {
-    return this.adressForm.valid ? null :  this.adressForm.valid;
+    return this.adressForm.valid ? null : this.adressForm.valid;
   }
   reset() {
     this.adressForm.reset();

@@ -73,7 +73,7 @@
         Your Country according region
       </ion-label>
       <ion-radio-group formControlName="country"  *ngIf="viewState$ | async as vs">
-        <ion-item *ngFor="let country of vs.countryList">
+        <ion-item *ngFor="let country of vs.countryList" (click)="onCountryChange(country)">
           <ion-label @fade>
             {{ country.display_name }}
           </ion-label>
@@ -112,8 +112,8 @@
   </div>
 
   <ion-item>
-    <ion-label position="floating" color="primary">Phone</ion-label>
-    <ion-input type="text" formControlName="phone"></ion-input>
+    <ion-label color="primary">Phone</ion-label>
+    <ion-input [placeholder]="phoneNumberPlaceholder" type="text" formControlName="phone"></ion-input>
   </ion-item>
   <div class="validation-errors">
     <ng-container *ngFor="let validation of validation_messages.phone">

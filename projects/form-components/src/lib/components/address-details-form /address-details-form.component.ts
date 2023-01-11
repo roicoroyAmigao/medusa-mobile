@@ -4,6 +4,7 @@ import { Store } from "@ngxs/store";
 import { fade } from "projects/services/src/lib/animations/animations";
 import { Subscription, Observable, Subject } from "rxjs";
 import { AddressesActions } from "src/app/store/addresses/addresses.actions";
+import { CountryPhone } from "../address-form/country-phone.model";
 import { AddressDetailsFormFacade } from "./address-details-form.facade";
 
 @Component({
@@ -80,6 +81,8 @@ export class AddressDetailsFormComponent implements OnInit, ControlValueAccessor
 
   viewState$: Observable<any>;
 
+  phoneNumberPlaceholder: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private store: Store,
@@ -114,6 +117,17 @@ export class AddressDetailsFormComponent implements OnInit, ControlValueAccessor
   }
   async onRegionCodeChange(regionId?: string) {
     this.store.dispatch(new AddressesActions.GetCountries(regionId));
+  }
+  onCountryChange(country: any) {
+    this.phoneNumberPlaceholder = this.buildPhoneNumberPlaceholder(country);
+  }
+
+  buildPhoneNumberPlaceholder(country: any): string {
+    const string = new CountryPhone(country.iso_2, country.name);
+    const phoneNumberPlaceholder = `${string.code} ${string.sample_phone}`;
+    console.log(phoneNumberPlaceholder);
+
+    return phoneNumberPlaceholder;
   }
   registerOnChange(fn: any) {
     this.onChange = fn;
